@@ -1,4 +1,2 @@
 docker-compose.yml
 *.yml
-
-services/discovery/src/main/resources/application.yml
