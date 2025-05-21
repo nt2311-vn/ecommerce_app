@@ -1,13 +1,11 @@
 package com.nt2311.ecommerce.customer;
 
 import com.nt2311.ecommerce.exception.CustomerNotFoundException;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 /** CustomerService */
 @Service
-@RequiredArgsConstructor
 public class CustomerService {
   private final CustomerRepository repository;
   private final CustomerMapper mapper;
@@ -38,6 +36,14 @@ public class CustomerService {
   private void mergerCustomer(Customer customer, CustomerRequest request) {
     if (StringUtils.isNotBlank(request.firstName())) {
       customer.setFirstName(request.firstName());
+    }
+
+    if (StringUtils.isNotBlank(request.lastName())) {
+      customer.setLastName(request.lastName());
+    }
+
+    if (request.address() != null) {
+      customer.setAddress(request.address());
     }
   }
 }
