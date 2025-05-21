@@ -1,10 +1,8 @@
 package com.nt2311.ecommerce.customer;
 
-import lombok.Builder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Builder
 @Document
 /** Customer */
 public class Customer {

@@ -12,6 +12,11 @@ public class CustomerService {
   private final CustomerRepository repository;
   private final CustomerMapper mapper;
 
+  public CustomerService(CustomerRepository repository, CustomerMapper mapper) {
+    this.repository = repository;
+    this.mapper = mapper;
+  }
+
   public String createCustomer(CustomerRequest request) {
     var customer = repository.save(mapper.toCustomer(request));
     return customer.getId();
