@@ -3,6 +3,7 @@ package com.nt2311.ecommerce.customer;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,5 +48,11 @@ public class CustomerController {
   @GetMapping("/{customer-id}")
   public ResponseEntity<CustomerResponse> findById(@PathVariable("customer-id") String customerId) {
     return ResponseEntity.ok(service.findById(customerId));
+  }
+
+  @DeleteMapping("/{customer-id}")
+  public ResponseEntity<Void> delete(@PathVariable("customer-id") String customerId) {
+
+    return ResponseEntity.accepted().build();
   }
 }

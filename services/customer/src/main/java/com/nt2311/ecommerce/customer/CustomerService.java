@@ -65,4 +65,8 @@ public class CustomerService {
             () -> new CustomerNotFoundException(
                 String.format("No customer found with the prrovided ID:: %s", customerId)));
   }
+
+  public void deleteCustomer(String customerId) {
+    repository.deleteById(customerId);
+  }
 }
