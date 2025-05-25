@@ -44,7 +44,14 @@ public class ProductService {
         throw new ProductPurchaseException(
             "Insufficent stock quantity for product with ID:: " + productRequest.productId());
       }
+
+      var newAvailabeQuantity = product.getAvailableQuantity() - productRequest.quantity();
+      product.setAvailableQuantity(newAvailabeQuantity);
+      repository.save(product);
+      purchasedProducts.add(mapper.toProductPurchaseResponse(product, productRequest.quantity()));
     }
+
+    return purchasedProducts;
   }
 
   public ProductResponse findById(Integer productId) {
