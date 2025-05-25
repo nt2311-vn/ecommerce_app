@@ -61,4 +61,39 @@ public class Category {
   public void setProducts(List<Product> products) {
     this.products = products;
   }
+
+  public static class Builder {
+    private Integer id;
+    private String name;
+    private String description;
+    private List<Product> products;
+
+    public Builder id(Integer id) {
+      this.id = id;
+      return this;
+    };
+
+    public Builder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public Builder description(String description) {
+      this.description = description;
+      return this;
+    }
+
+    public Builder products(List<Product> products) {
+      this.products = products;
+      return this;
+    }
+
+    public Category build() {
+      return new Category(id, name, description, products);
+    }
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
 }
