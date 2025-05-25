@@ -88,4 +88,51 @@ public class Product {
   public void setCategory(Category category) {
     this.category = category;
   }
+
+  public static class Builder {
+    private Integer id;
+    private String name;
+    private String description;
+    private Double availableQuantity;
+    private BigDecimal price;
+    private Category category;
+
+    public Builder id(Integer id) {
+      this.id = id;
+      return this;
+    }
+
+    public Builder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public Builder description(String description) {
+      this.description = description;
+      return this;
+    }
+
+    public Builder availableQuantity(Double availableQuantity) {
+      this.availableQuantity = availableQuantity;
+      return this;
+    }
+
+    public Builder price(BigDecimal price) {
+      this.price = price;
+      return this;
+    }
+
+    public Builder category(Category category) {
+      this.category = category;
+      return this;
+    }
+
+    public Product build() {
+      return new Product(id, name, description, availableQuantity, price, category);
+    }
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
 }
